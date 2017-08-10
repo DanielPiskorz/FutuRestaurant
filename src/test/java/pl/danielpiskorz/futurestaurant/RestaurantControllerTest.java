@@ -35,7 +35,7 @@ public class RestaurantControllerTest {
     
     @Test
     public void shouldReturnRestaurantsAsJson() throws Exception {
-        mockMvc.perform(get("/restaurant").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/restaurants").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"));
     }

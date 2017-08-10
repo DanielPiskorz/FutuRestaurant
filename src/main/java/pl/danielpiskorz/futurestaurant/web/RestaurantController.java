@@ -11,7 +11,7 @@ import pl.danielpiskorz.futurestaurant.model.Restaurant;
 import pl.danielpiskorz.futurestaurant.service.RestaurantService;
 
 @RestController
-@RequestMapping("/restaurant")
+@RequestMapping("/restaurants")
 public class RestaurantController {
 
 	@Autowired

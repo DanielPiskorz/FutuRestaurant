@@ -1,0 +1,14 @@
+<div class="row">
+	
+	<div class="card text-center col-lg-3 col-md-4 col-sm-6"
+				ng-repeat="r in restaurants">
+		<a href="/restaurant">
+		<img class="card-img-top img-fluid" id="photo" src="img/restaurant/photo/{{r.id % 2 + 1}}.jpg"  ng-click="setId(restaurants[$index].id)"/>
+				
+		<h4 class="card-title">{{r.name}}</h4>
+		<p class="card-text">{{r.description.shortDescription}}</p>
+	</a>
+
+	</div>
+	
+</div>

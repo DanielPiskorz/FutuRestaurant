@@ -11,6 +11,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception{
 		http
 			.httpBasic().and()
-			.authorizeRequests().antMatchers("/restaurant").permitAll();
+			.authorizeRequests().antMatchers("/restaurants").permitAll();
 	}
 }

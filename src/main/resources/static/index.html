@@ -15,20 +15,7 @@
 <body ng-app="app" ng-cloak class="ng-cloak">
 	<div ng-controller="home" class="container">
 		<h1>Welcome to FutuRestaurant app!</h1>
-		<div class="row">
-			<div class="card text-center col-lg-3 col-md-4 col-sm-6"
-				ng-repeat="r in restaurants">
-
-
-				<img class="card-img-top img-fluid" id="photo"
-					src="img/restaurant/photo/{{r.id % 2 + 1}}.jpg" />
-				
-				<h4 class="card-title">{{r.name}}</h4>
-				<p class="card-text">{{r.description.shortDescription}}</p>
-
-
-			</div>
-		</div>
+		<div class="ng-view"></div>
 		<p id="footer">Created by Daniel Piskorz in August 2017.</p>
 	</div>
 
