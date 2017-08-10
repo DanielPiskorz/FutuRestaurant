@@ -3,6 +3,7 @@
 <head>
 <title>Futurestaurant</title>
 <link href="css/angular-bootstrap.css" rel="stylesheet">
+<link href="css/some.css" rel="stylesheet">
 <style type="text/css">
 [ng\:cloak], [ng-cloak], .ng-cloak {
 	display: none !important;
@@ -15,12 +16,20 @@
 	<div ng-controller="home" class="container">
 		<h1>Welcome to FutuRestaurant app!</h1>
 		<div class="row">
-			<div class="col-lg-4" ng-repeat="r in restaurants" >
-				<h2>{{r.id}}. {{r.name}}</h2>
-				<h3>{{r.type}}</h3>
+			<div class="card text-center col-lg-3 col-md-4 col-sm-6"
+				ng-repeat="r in restaurants">
+
+
+				<img class="card-img-top img-fluid" id="photo"
+					src="img/restaurant/photo/{{r.id % 2 + 1}}.jpg" />
+				
+				<h4 class="card-title">{{r.name}}</h4>
+				<p class="card-text">{{r.description.shortDescription}}</p>
+
+
 			</div>
 		</div>
-		<p id="footer"> Created by Daniel Piskorz in August 2017.</p>
+		<p id="footer">Created by Daniel Piskorz in August 2017.</p>
 	</div>
 
 	<script src="js/angular-bootstrap.js" type="text/javascript"></script>
