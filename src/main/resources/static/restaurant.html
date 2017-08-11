@@ -1,1 +1,9 @@
-<h1>Selected restaurant: {{id}}</h1>
+<h1>Selected restaurant: {{selectedRestaurant.id}}. {{selectedRestaurant.name}}</h1>
+<div ng-repeat="menu in selectedRestaurant.menus">
+	<h2>{{menu.name}}</h2>
+	<ul>
+		<li ng-repeat="dish in menu.dishes">
+			<b>{{dish.name}}</b> {{dish.description}}, {{dish.price}}
+		</li>
+	</ul>
+</div>

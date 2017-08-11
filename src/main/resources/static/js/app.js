@@ -6,23 +6,27 @@ angular.module('app', ['ngRoute'])
     .when("/", {
         templateUrl : "home.html",
     })
-    .when("/restaurant", {
+    .when("/restaurant/:restaurantId", {
         templateUrl : "restaurant.html",
     })
     .otherwise({
         template : "This page doesn't exist."
     });
-   $locationProvider.html5Mode({
-	   enabled: true,
-	   requireBase: false
-	 });
+
 }])
-.controller('home', function ($scope, $rootScope, $http) {
+.controller('home', function ($scope, $rootScope, $http, $routeParams) {
 	$http.get("/restaurants")
 	.then(function(response) {
         $scope.restaurants = response.data;
-        $scope.setId= function(id){
-        	$rootScope.id = id;
+        const id = $routeParams.restaurantId;
+        
+        $scope.restaurants.forEach(function (item) {
+        	if(item.id == id)
+        		$rootScope.selectedRestaurant = item;
+        });
+        
+        $scope.setRestaurant = function(r){
+        	$rootScope.selectedRestaurant = r;
         }
     });
 });
