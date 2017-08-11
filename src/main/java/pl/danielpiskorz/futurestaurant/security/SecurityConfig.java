@@ -11,6 +11,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception{
 		http
 			.httpBasic().and()
-			.authorizeRequests().antMatchers("/restaurants").permitAll();
+			.authorizeRequests().antMatchers("/restaurants",
+					"/owner/restaurant"//TODO required role : OWNER
+					).permitAll();
 	}
 }
