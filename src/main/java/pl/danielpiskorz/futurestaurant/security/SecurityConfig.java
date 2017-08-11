@@ -13,6 +13,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.httpBasic().and()
 			.authorizeRequests().antMatchers("/restaurants",
 					"/owner/restaurant"//TODO required role : OWNER
-					).permitAll();
+					).permitAll()
+			.and().csrf().disable();//TODO configure csrf protection
 	}
 }

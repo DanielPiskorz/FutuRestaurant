@@ -4,10 +4,14 @@ angular.module('app', ['ngRoute'])
 	  function($routeProvider, $locationProvider) {
    $routeProvider
     .when("/", {
-        templateUrl : "home.html",
+        templateUrl : "pages/home.html",
     })
     .when("/restaurant/:restaurantId", {
-        templateUrl : "restaurant.html",
+        templateUrl : "pages/restaurant.html",
+    })
+    .when("/new-restaurant", {
+        templateUrl : "pages/newRestaurantForm.html",
+        controller: "newRestaurantCtrl"
     })
     .otherwise({
         template : "This page doesn't exist."
@@ -29,4 +33,17 @@ angular.module('app', ['ngRoute'])
         	$rootScope.selectedRestaurant = r;
         }
     });
+})
+.controller('newRestaurantCtrl', function ($scope, $rootScope, $http) {
+	
+    $scope.submit = function(){
+        $http.post('/owner/restaurant', $scope.newRestaurant)
+        .then(
+        function success() {
+            $scope.result = "SUCCESS";
+        }
+        ,function error(){
+            $scope.result = "ERROR";
+        });
+    };
 });
