@@ -7,4 +7,5 @@ import pl.danielpiskorz.futurestaurant.model.Restaurant;
 public interface RestaurantService {
 
 	List<Restaurant> getRestaurantsAsList();
+
 }

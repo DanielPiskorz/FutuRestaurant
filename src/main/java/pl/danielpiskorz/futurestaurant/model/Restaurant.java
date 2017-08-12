@@ -36,6 +36,8 @@ public class Restaurant implements Serializable{
 	
 	@Embedded
 	private Description description;
+	
+	private String photoExtension;
 
 	public Long getId() {
 		return id;
@@ -76,6 +78,15 @@ public class Restaurant implements Serializable{
 	public void setDescription(Description description) {
 		this.description = description;
 	}
+	
+	public String getPhotoExtension() {
+		return photoExtension;
+	}
+
+	public void setPhotoExtension(String photoExtension) {
+		this.photoExtension = photoExtension;
+	}
+
 
 	@Override
 	public int hashCode() {

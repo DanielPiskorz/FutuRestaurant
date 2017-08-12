@@ -36,14 +36,40 @@ angular.module('app', ['ngRoute'])
 })
 .controller('newRestaurantCtrl', function ($scope, $rootScope, $http) {
 	
-    $scope.submit = function(){
-        $http.post('/owner/restaurant', $scope.newRestaurant)
-        .then(
-        function success() {
-            $scope.result = "SUCCESS";
+	$scope.submit = function(){
+
+	  const formData = new FormData();
+      const file = $scope.photo;
+      $scope.newRestaurant.photoExtension = file.name.substring(file.name.lastIndexOf('.'));
+      const json = $scope.newRestaurant;
+      console.log(file.name)
+      formData.append("file", file);
+      formData.append("restaurant",JSON.stringify(json));
+      const req = {
+        url: '/owner/restaurant',
+        method: 'POST',
+        headers: {'Content-Type': undefined},
+        data: formData,
+        transformRequest: angular.identity
         }
-        ,function error(){
-            $scope.result = "ERROR";
-        });
+      $http(req);
+	}
+
+       
+})
+.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
     };
-});
+}]);
+

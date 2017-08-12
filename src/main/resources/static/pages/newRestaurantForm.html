@@ -2,8 +2,9 @@
 <form> <!-- ng-controller="newRestaurantCtrl"> --> 
 Name: <input type="text" ng-model="newRestaurant.name"><br>
 Type: <input type="text" ng-model="newRestaurant.type"><br>
-Short Desciption: <input type="text" ng-model="newRestaurant.description.shortDesciption"><br>
+Short Desciption: <input type="text" ng-model="newRestaurant.description.shortDescription"><br>
 Extension (full desciption): <input type="text" ng-model="newRestaurant.description.extension"><br>
+Image: <input type="file" file-model="photo" accept="image/jpg, image/png, image/jpeg"><br>
 <button ng-click="submit()">ADD NEW RESTAURANT</button><br>
 {{result}}
 </form>

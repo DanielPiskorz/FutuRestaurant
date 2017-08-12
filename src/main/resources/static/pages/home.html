@@ -3,7 +3,7 @@
 	<div class="card text-center col-lg-3 col-md-4 col-sm-6"
 				ng-repeat="r in restaurants">
 		<a href="/#!/restaurant/{{r.id}}">
-		<img class="card-img-top img-fluid" id="photo" src="img/restaurant/photo/{{r.id % 2 + 1}}.jpg" 
+		<img class="card-img-top img-fluid" id="photo" src="/photo/{{r.id + r.photoExtension}}" 
 		 ng-click="setRestaurant(restaurants[$index])"/>
 				
 		<h4 class="card-title">{{r.name}}</h4>
