@@ -27,7 +27,6 @@ public class Restaurant implements Serializable{
 	private Long id;
 	
 	private String name;
-	private String type;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@Cascade(org.hibernate.annotations.CascadeType.REPLICATE)
@@ -37,6 +36,7 @@ public class Restaurant implements Serializable{
 	@Embedded
 	private Description description;
 	
+	private String mainColor;
 	private String photoExtension;
 
 	public Long getId() {
@@ -53,14 +53,6 @@ public class Restaurant implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public List<Menu> getMenus() {
@@ -82,9 +74,19 @@ public class Restaurant implements Serializable{
 	public String getPhotoExtension() {
 		return photoExtension;
 	}
-
+	
+	
 	public void setPhotoExtension(String photoExtension) {
 		this.photoExtension = photoExtension;
+	}
+	
+	
+	public String getMainColor() {
+		return mainColor;
+	}
+
+	public void setMainColor(String mainColor) {
+		this.mainColor = mainColor;
 	}
 
 
@@ -96,7 +98,6 @@ public class Restaurant implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((menus == null) ? 0 : menus.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -128,11 +129,6 @@ public class Restaurant implements Serializable{
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
 			return false;
 		return true;
 	}

@@ -1,10 +1,40 @@
-<h1>Add new Restaurant:</h1>
-<form> <!-- ng-controller="newRestaurantCtrl"> --> 
-Name: <input type="text" ng-model="newRestaurant.name"><br>
-Type: <input type="text" ng-model="newRestaurant.type"><br>
-Short Desciption: <input type="text" ng-model="newRestaurant.description.shortDescription"><br>
-Extension (full desciption): <input type="text" ng-model="newRestaurant.description.extension"><br>
-Image: <input type="file" file-model="photo" accept="image/jpg, image/png, image/jpeg"><br>
-<button ng-click="submit()">ADD NEW RESTAURANT</button><br>
-{{result}}
-</form>
+
+<legend class="text-center"> Add your own restaurant</legend>
+
+<div class="form-group row">
+  <label class="col-3 col-form-label text-right">Name</label>
+  <div class="col-8">
+    <input ng-model="newRestaurant.name" class="form-control" type="text" >
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-3 col-form-label text-right">Short description</label>
+  <div class="col-8">
+    <input ng-model="newRestaurant.description.shortDescription" class="form-control" type="text" >
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-3 col-form-label text-right">Full Description <br> (extension)</label>
+  
+  <div class="col-8">
+    <textarea ng-model="newRestaurant.description.extension" class="form-control" ></textarea>
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-3 col-form-label text-right">Photo</label>
+  <div class="col-8">
+   <input type="file" file-model="photo" accept="image/jpg, image/png, image/jpeg" class="form-control">
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-3 col-form-label text-right">Color</label>
+  <div class="col-8">
+    <input ng-model="newRestaurant.mainColor" class="form-control" type="color" >
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-3 col-form-label text-right"></label>
+  <div class="col-8">
+    <button ng-click="submit()" class="btn btn-primary">Submit</button>
+  </div>
+</div>

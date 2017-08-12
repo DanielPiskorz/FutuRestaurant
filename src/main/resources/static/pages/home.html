@@ -6,8 +6,17 @@
 		<img class="card-img-top img-fluid" id="photo" src="/photo/{{r.id + r.photoExtension}}" 
 		 ng-click="setRestaurant(restaurants[$index])"/>
 				
-		<h4 class="card-title">{{r.name}}</h4>
+		<h4 class="card-title" style="color: {{r.mainColor}}">{{r.name}}</h4>
 		<p class="card-text">{{r.description.shortDescription}}</p>
+	</a>
+
+	</div>
+	<div class="card text-center col-lg-3 col-md-4 col-sm-6">
+		<a href="/#!/new-restaurant">
+		<img class="card-img-top img-fluid" id="photo" src="/img/add.png"/>
+				
+		<h4 class="card-title">Are you the owner?</h4>
+		<h4 class="card-text">Add your restaurant!</h4>
 	</a>
 
 	</div>
